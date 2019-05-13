@@ -1,1 +1,123 @@
-hello
+
+#Create Tables
+#	Client
+CREATE TABLE Client (
+	ClientID int,
+	Name varchar(255),
+	Address varchar(255),
+	Email varchar(255),
+	PhoneNumber int
+	PRIMARY KEY(ClientID)
+);
+# Therapist
+CREATE TABLE Therapist (
+	TherapistID int,
+	Name varchar(255),
+	Email varchar(255),
+	PRIMARY KEY(TherapistID)
+);
+# Diagnosed
+CREATE TABLE Diagnosed (
+	ClientID int,
+	DisorderCode int,
+	PRIMARY KEY(ClientID),
+	PRIMARY KEY(DisorderCode)
+);
+# Specializes
+CREATE TABLE Specializes (
+	TherapistID int,
+	DisorderCoder int,
+	PRIMARY KEY(TherapistID),
+	PRIMARY KEY(DisorderCode)
+);
+# Disorder
+CREATE TABLE Disorder (
+	DisorderCode int,
+	DisorderName varchar(255),
+	PRIMARY KEY(DisorderCode)
+);
+# Treated
+CREATE TABLE Treated (
+	ClientID int,
+	AppointmentID int,
+	PRIMARY KEY(ClientID),
+	PRIMARY KEY(AppointmentID)
+);
+# Treating
+CREATE TABLE Treating (
+	TherapistID int,
+	AppointmentID int,
+	PRIMARY KEY(TherapistID),
+	PRIMARY KEY(AppointmentID)
+);
+# Appointment
+CREATE TABLE Appointment (
+	AppointmentID int,
+	TreatmentID int 
+	Date varchar(255),
+	Room_no varchar(255),
+	Duration int,
+	PRIMARY KEY(AppointmentID),
+	PRIMARY KEY(TreatmentID)  
+);
+# Treatment
+CREATE TABLE Treatment (
+	TreatmentID int,
+	TreatmentName varchar(255),
+	PRIMARY KEY(TreatmentID) 
+);
+
+
+# Insert Data
+# Client
+INSERT INTO Client(ClientID, Name, Address, Email, PhoneNumber)
+INSERT INTO Client(000001, Judy Leon, 585 Orchard Avenue Brooklyn, NY 11207, jleon123@gmail.com, 347-200-9920)
+INSERT INTO Client(000002, Kristi Glover, 94 Fieldstone Street Brooklyn, NY 11203, kglover123@gmail.com, 347-203-1686)
+INSERT INTO Client(000003, Amelia Banks, 7985 Lookout Street Brooklyn, NY 11237, abanks123@gmail.com, 347-204-7816)
+INSERT INTO Client(000004, Brittney Ferguson, 9 Rock Maple Street Brooklyn, NY 11221, bferguson123@gmail.com, 347-210-1447)
+# Therapist
+INSERT INTO Therapist(TherapistID, Name, Email)
+INSERT INTO Therapist(100001, Lynsey Kline, lkline@therapyConnections.com)
+INSERT INTO Therapist(100002, Katie Rose, krose@therapyConnections.com)
+INSERT INTO Therapist(100003, Lara Carson, lcarson@therapyConnections.com)
+# Diagnosed
+INSERT INTO Diagnosed(ClientID, DisorderCode)
+INSERT INTO Diagnosed(000001, 300.02)
+INSERT INTO Diagnosed(000002, 300.01)
+INSERT INTO Diagnosed(000003, 300.3)
+INSERT INTO Diagnosed(000004, 309.81)
+# Specializes
+INSERT INTO Specializes(TherapistID,DisorderCode)
+INSERT INTO Specializes(100001,300.02)
+INSERT INTO Specializes(100001,300.01)
+INSERT INTO Specializes(100002,300.3)
+INSERT INTO Specializes(100003,309.81)
+# Disorder
+INSERT INTO Disorder(DisorderCode,DisorderName)
+INSERT INTO Disorder(300.02, Generalized Anxiety Disorder)
+INSERT INTO Disorder(300.01, Panic Disorder)
+INSERT INTO Disorder(300.3, Obsessive-Compulsive Disorder)
+INSERT INTO Disorder(309.81, Posttraumatic Stress Disorder)
+# Treated
+INSERT INTO Treated(ClientID, AppointmentID)
+INSERT INTO Treated(000001, 200001)
+INSERT INTO Treated(000002, 200002)
+INSERT INTO Treated(000003, 200003)
+INSERT INTO Treated(000004, 200004)
+# Treating
+INSERT INTO Treated(TherapistID,AppointmentID)
+INSERT INTO Treated(100001,200001)
+INSERT INTO Treated(100001,200002)
+INSERT INTO Treated(100002,200003)
+INSERT INTO Treated(100003,200004)
+# Appointment
+INSERT INTO Appointment(AppointmentID, TreatmentID, Date, Room_no, Duration)
+INSERT INTO Appointment(200001, 300001, 2:30 PM 05/06/19, 201, 45 min)
+INSERT INTO Appointment(200002, 300001, 4:00 PM 05/06/19, 201, 45 min)
+INSERT INTO Appointment(200003, 300002, 1:30 PM 05/07/19, 202, 45 min)
+INSERT INTO Appointment(200004, 300003, 9:00 AM 05/08/19, 203, 45 min)
+# Treatment
+INSERT INTO Treatment(TreatmentID, TreatmentName)
+INSERT INTO Treatment(300001, Cognitive Behavioral Therapy)
+INSERT INTO Treatment(300002, Exposure Response Prevention Therapy)
+INSERT INTO Treatment(300003, EMDR)

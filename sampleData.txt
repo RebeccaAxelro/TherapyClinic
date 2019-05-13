@@ -1,8 +1,8 @@
 
 #Create Tables
-#	Client
+# Client
 CREATE TABLE Client (
-	ClientID int,
+	ClientID int NOT NULL,
 	Name varchar(255),
 	Address varchar(255),
 	Email varchar(255),
@@ -11,28 +11,28 @@ CREATE TABLE Client (
 );
 # Therapist
 CREATE TABLE Therapist (
-	TherapistID int,
+	TherapistID int NOT NULL,
 	Name varchar(255),
 	Email varchar(255),
 	PRIMARY KEY(TherapistID)
 );
 # Diagnosed
 CREATE TABLE Diagnosed (
-	ClientID int,
-	DisorderCode int,
-	PRIMARY KEY(ClientID),
-	PRIMARY KEY(DisorderCode)
+	ClientID int NOT NULL,
+	DisorderCode int NOT NULL,
+	FOREIGN KEY(ClientID) REFRENCES Cleint(ClientID),
+        FOREIGN KEY(DisorderCode) REFRENCES Disorder(DisorderCode)
 );
 # Specializes
 CREATE TABLE Specializes (
-	TherapistID int,
-	DisorderCoder int,
-	PRIMARY KEY(TherapistID),
-	PRIMARY KEY(DisorderCode)
+	TherapistID int NOT NULL,
+	DisorderCode int NOT NULL,
+	FOREIGN KEY(TherapistID) REFRENCES Therapist(TherapistID),
+        FOREIGN KEY(DisorderCode) REFRENCES Disorder(DisorderCode)
 );
 # Disorder
 CREATE TABLE Disorder (
-	DisorderCode int,
+	DisorderCode int NOT NULL,
 	DisorderName varchar(255),
 	PRIMARY KEY(DisorderCode)
 );
@@ -40,25 +40,25 @@ CREATE TABLE Disorder (
 CREATE TABLE Treated (
 	ClientID int,
 	AppointmentID int,
-	PRIMARY KEY(ClientID),
-	PRIMARY KEY(AppointmentID)
+        FOREIGN KEY(ClientID) REFRENCES Cleint(ClientID),
+        FOREIGN KEY(AppointmentID) REFRENCES Appointment(AppointmentID)
 );
 # Treating
 CREATE TABLE Treating (
 	TherapistID int,
 	AppointmentID int,
-	PRIMARY KEY(TherapistID),
-	PRIMARY KEY(AppointmentID)
+        FOREIGN KEY(TherapistID) REFRENCES Therapist(TherapistID),
+        FOREIGN KEY(AppointmentID) REFRENCES Appointment(AppointmentID
 );
 # Appointment
 CREATE TABLE Appointment (
-	AppointmentID int,
-	TreatmentID int 
-	Date varchar(255),
-	Room_no varchar(255),
-	Duration int,
+	AppointmentID int NOT NULL,
+	TreatmentID int NOT NULL, 
+	Date datetime,
+	Room_no varchar(15),
+	Duration varchar(255),
 	PRIMARY KEY(AppointmentID),
-	PRIMARY KEY(TreatmentID)  
+        FOREIGN KEY(TreatmentID) REFRENCES Treatment(TreatmentID)
 );
 # Treatment
 CREATE TABLE Treatment (

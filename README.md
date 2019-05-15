@@ -16,4 +16,4 @@
 	   But I decided to keep it this way becuase when updating appointment, your not changing the therapist or client.
 	   You would just be updating the time or duration, etc. So I didnt see a point in splitting it up.
 
-- See updates ER diagram: https://docs.google.com/document/d/10MBc59WyDk7OWTJHBzHqpW8b4fbZrbyAl4wETjOfj3E/edit?usp=sharing
+- See updated ER diagram: https://docs.google.com/document/d/10MBc59WyDk7OWTJHBzHqpW8b4fbZrbyAl4wETjOfj3E/edit?usp=sharing

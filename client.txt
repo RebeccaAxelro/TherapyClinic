@@ -1,0 +1,4 @@
+000001|Judy Leon|585 Orchard Avenue Brooklyn, NY 11207|jleon123@gmail.com|3472009920
+000002|Kristi Glover|94 Fieldstone Street Brooklyn, NY 11203|kglover123@gmail.com|3472031686
+000003|Amelia Banks|7985 Lookout Street Brooklyn, NY 11237|abanks123@gmail.com|3472047816
+000004|Brittney Fergson|9 Rock Maple Street Brooklyn, NY 11221|bferguson123@gmail.com|3472101447
